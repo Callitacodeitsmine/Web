@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Content Example</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .left-panel {
+            width: auto;
+            height: 100vh;
+            background-color: #f1f1f1;
+            float: left;
+            padding: 30px;
+        }
+
+        li {
+            list-style-type: none;
+            padding: 10px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        // JavaScript code for handling component clicks and showing content
+        function showContent(component) {
+            var contentDiv = document.getElementById("content");
+
+            // Clear previous content
+            contentDiv.innerHTML = "";
+
+            // Set new content based on the clicked component
+            switch (component) {
+                case "home":
+                    contentDiv.innerHTML = `<h2>Welcome to the Home Page</h2>
+                    <p>This is the home page of our website.</p>`;
+                    break;
+                case "contact":
+                    contentDiv.innerHTML = "<h2>Contact Information</h2><p>Phone: 123-456-7890<br>Email: contact@example.com</p>";
+                    break;
+                case "information":
+                    contentDiv.innerHTML = "<h2>Information</h2><p>This is some information about our website.</p>";
+                    break;
+                case "guide":
+                    contentDiv.innerHTML = "<h2>User Guide</h2><p>Here's a step-by-step guide on how to use our website.</p>";
+                    break;
+                default:
+                    contentDiv.innerHTML = "<h2>Welcome </h2>";
+                    break;
+            }
+        }
+    </script>
+</head>
+<link rel="stylesheet" href="Untitled-9.css">
+
+<body>
+    <div class="left-panel">
+        <!-- Left panel components -->
+        <ul>
+            <li><a href="#" onclick="showContent('home')">Home</a></li>
+            <li><a href="#" onclick="showContent('contact')">Contact</a></li>
+            <li><a href="#" onclick="showContent('information')">Information</a></li>
+            <li><a href="#" onclick="showContent('guide')">Guide</a></li>
+        </ul>
+    </div>
+    <div class="content" id="content">
+        <!-- Content will be dynamically updated here -->
+        <h2>Welcome</h2>
+    </div>
+</body>
+
+</html>
